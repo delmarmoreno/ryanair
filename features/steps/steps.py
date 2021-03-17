@@ -13,11 +13,6 @@ browser = webdriver.Chrome(chromedriver)
 def step(context,url):
 	browser.get(url)
 
-
-@when('we visit google')
-def step(context):
-   browser.get('http://www.google.com')
-
 @then('it should have a title "{title}"')
 def step(context, title):
    assert browser.title == title
@@ -65,8 +60,8 @@ def step(context,css):
 
 @given('I am in itinerary page')
 def step(context):
-	# assert browser.title == "Ryanair"
-	pass	
+	assert browser.title == "Ryanair"
+	
 
 @then('I click on an option')
 def step(context):
@@ -80,8 +75,7 @@ def step(context):
 def step(context):
 	browser.find_element_by_css_selector(".login-touchpoint__expansion-bar").click() 
 	sleep(float(5))	
-	# pass	
-
+	
 @when('I write first passenger "{first_name}" and "{last_name}" and "{title}"')
 def step(context, first_name, last_name, title):
 	fname = browser.find_element_by_css_selector("input[name='formState.passengers.ADT-0.name']")
@@ -92,6 +86,7 @@ def step(context, first_name, last_name, title):
 	browser.find_element_by_css_selector(title).click()
 	sleep(float(5))	
 
+# Couldn't get to the title of second passenger.
 @when('I write secnd passenger "{first_name}" and "{last_name}" and "{title}"')
 def step(context, first_name, last_name, title):
 	fname = browser.find_element_by_css_selector("[name='formState.passengers.ADT-1.name']")
@@ -102,7 +97,6 @@ def step(context, first_name, last_name, title):
 	browser.find_element_by_css_selector("button.dropdown__toggle").click()
 	browser.find_element_by_css_selector(title).click()
 	sleep(float(10))	
-	# pass
 
 @then('I select seat in row {number}')
 def step(context, number):

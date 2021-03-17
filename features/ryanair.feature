@@ -1,6 +1,6 @@
 Feature: testing ryanair
 
-Scenario: booking one way flight with adults
+Scenario: Booking one way flight with adults
 Given I go to "https://www.ryanair.com/ie/en/"
 Then it should have a title "Official Ryanair website | Cheap flights from Ireland | Ryanair"
 When I click ".cookie-popup-with-overlay__button"
@@ -45,3 +45,5 @@ Scenario: checkout
 Then I click "a[data-ref='basket-tooltip__open-basket']"
 Then I wait 5
 Then I click "[data-ref='basket-continue-flow__check-out']"
+Then I wait 5
+Then I close the browser
